@@ -3,7 +3,7 @@ bcrypt==4.0.1
 certifi==2022.12.7
 charset-normalizer==3.0.1
 click==8.0.4
-colorama==0.4.6
+colorama==0.4.5
 dnspython==2.3.0
 Flask==2.2.3
 Flask-Bcrypt==1.0.0
