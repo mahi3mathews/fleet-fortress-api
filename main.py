@@ -33,7 +33,7 @@ origin_url = os.getenv("REACT_APP_URL")
 
 print(origin_url)
 
-CORS(app, supports_credentials=True, resources={r"/*": {"origins": origin_url}})
+CORS(app, supports_credentials=True, resources={r"/*": {"origins": "https://buqxp359th.execute-api.eu-central-1.amazonaws.com"}})
 
 
 
