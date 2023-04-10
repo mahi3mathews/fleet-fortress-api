@@ -46,3 +46,5 @@ class UserResource(Resource):
             logging.debug(f"User failed to fetch their details {ex}")
 
         return make_response(jsonify({"message": message, "status": status, "data": data}), code)
+
+    

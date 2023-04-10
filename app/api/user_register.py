@@ -83,7 +83,7 @@ class UserRegisterResource(Resource):
                         message = 'Incomplete request. No name was provided.'
                         code = 400
                         logging.warning("Admin tried to register without name")
-                    elif not payload["name"] or is_valid_input_value(payload["name"]):
+                    elif not payload["name"] or not is_valid_input_value(payload["name"]):
                         status = 'fail'
                         message = 'Invalid name provided'
                         code = 400

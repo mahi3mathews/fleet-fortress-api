@@ -13,12 +13,11 @@ cluster3 = os.getenv("DB_CLUSTER")
 username = os.environ.get("DB_USERNAME")
 password = os.environ.get("DB_PWD")
 cluster = os.environ.get("DB_CLUSTER")
-
-print(username, password, cluster, "enviros", username1, password2, cluster3)
 client = MongoClient(f"mongodb+srv://{username}:{password}@{cluster}")
 
 db = client["fleet-fortress"]
 user_collection = db["users"]
 register_codes = db["register_codes"]
+register_codes.create_index([('expire_at', ASCENDING)], expireAfterSeconds=86400)
 route_collection = db["routes"]
 vehicle_collection = db["vehicles"]

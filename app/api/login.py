@@ -1,12 +1,12 @@
+from datetime import timedelta, datetime
 from flask_restful import Resource
-import jwt
-from datetime import datetime, timedelta
+from flask import request, make_response, jsonify
 from flask_bcrypt import Bcrypt
-from flask import request, jsonify, make_response
 import logging
+import jwt
 
-from app.schemas.users import user_entity
 from app.utils.validity_checks import is_valid_email
+from app.schemas.users import user_entity
 
 bcrypt = Bcrypt()
 
@@ -15,8 +15,6 @@ lockout_time = 60 * 30
 
 
 def handle_invalid_login(email):
-    print(email)
-    print(failed_attempts, "FAILED")
     if email in failed_attempts:
         failed_attempts[email]['count'] += 1
         failed_attempts[email]['timestamp'] = datetime.now()
@@ -53,7 +51,8 @@ class LoginResource(Resource):
           Returns:
               A JSON response containing the following keys:
                   - status (str): A string indicating the status of the authentication request.
-                  - data (dict): A dictionary containing the authentication token and the user's data (except for the password).
+                  - data (dict): A dictionary containing the authentication token and the user's data (except
+                  for the password).
                   - message (str): A string containing a message describing the status of the authentication request.
         """
         res_data = {}
@@ -123,3 +122,4 @@ class LoginResource(Resource):
             response_entity.set_cookie(key='jwt_token', value=token, expires=time, httponly=True)
 
         return response_entity
+

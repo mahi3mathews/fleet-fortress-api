@@ -10,7 +10,7 @@ from app.enums.record_count import RecordCount
 from app.enums.vehicle_route_status import VehicleRouteStatus
 from app.schemas.vehicles import vehicle_entity, vehicle_list_entity, create_vehicle_entity
 from app.schemas.users import user_entity
-from app.utils.validity_checks import is_vehicle_plate_valid, is_valid_object_id, is_valid_input_value
+from app.utils.validity_checks import is_vehicle_plate_valid, is_valid_object_id
 from app.utils.get_userid_token import get_userid_token
 
 
