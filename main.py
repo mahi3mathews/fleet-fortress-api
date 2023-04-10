@@ -26,7 +26,7 @@ load_dotenv(dotenv_path=env_path)
 app = Flask(__name__, static_folder='../frontend/build', static_url_path='')
 api = Api(app, prefix='/api/v1')
 
-app.config["SERVER_NAME"] = os.getenv("BASE_API_URL")
+
 secret_key = os.getenv("JWT_SECRET_KEY")
 origin_url = os.getenv("REACT_APP_URL")
 
